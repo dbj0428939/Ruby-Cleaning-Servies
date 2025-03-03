@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="240" height="60" viewBox="0 0 240 60" xmlns="http://www.w3.org/2000/svg">
+  <!-- Ruby Diamond Icon -->
+  <g transform="translate(0, 8)">
+    <path d="M22 0L44 22L22 44L0 22L22 0Z" fill="#e91e63"/>
+    <path d="M22 8L36 22L22 36L8 22L22 8Z" fill="#ffffff" opacity="0.3"/>
+  </g>
+  
+  <!-- Text: RUBY -->
+  <text x="54" y="38" font-family="Poppins, sans-serif" font-size="28" font-weight="600" fill="#e91e63">RUBY</text>
+  
+  <!-- Text: CLEANING SERVICES -->
+  <text x="54" y="52" font-family="Poppins, sans-serif" font-size="12" font-weight="500" fill="#333333">CLEANING SERVICES</text>
+</svg>
