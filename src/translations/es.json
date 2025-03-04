@@ -1,0 +1,199 @@
+{
+  "estimate": {
+    "title": "Solicitar Presupuesto Gratis",
+    "description": "Experimente la excelencia en limpieza con Ruby Cleaning Services. Nuestro dedicado equipo de profesionales ofrece una atención meticulosa a los detalles y resultados sobresalientes para cada espacio que tocamos. Desde hogares hasta oficinas, proporcionamos soluciones de limpieza personalizadas que superan las expectativas, asegurando un ambiente prístino y saludable para que usted prospere.",
+    "sections": {
+      "services": "Seleccionar Servicios Necesarios",
+      "contact": "Información de Contacto",
+      "property": "Información de la Propiedad",
+      "serviceDetails": "Detalles del Servicio"
+    },
+    "form": {
+      "firstName": "Nombre*",
+      "lastName": "Apellido*",
+      "email": "Correo Electrónico*",
+      "phone": "Número de Teléfono*",
+      "address": "Dirección*",
+      "city": "Ciudad*",
+      "state": "Estado*",
+      "zipCode": "Código Postal*",
+      "propertyType": {
+        "label": "Tipo de Propiedad*",
+        "placeholder": "Seleccionar Tipo de Propiedad",
+        "house": "Casa",
+        "apartment": "Apartamento",
+        "office": "Oficina",
+        "other": "Otro"
+      },
+      "squareFootage": {
+        "label": "Metros Cuadrados",
+        "placeholder": "Metros cuadrados aproximados"
+      },
+      "bedrooms": {
+        "label": "Número de Habitaciones",
+        "placeholder": "Seleccionar",
+        "studio": "Estudio",
+        "options": {
+          "1": "1",
+          "2": "2",
+          "3": "3",
+          "4": "4",
+          "5+": "5+"
+        }
+      },
+      "bathrooms": {
+        "label": "Número de Baños",
+        "placeholder": "Seleccionar",
+        "options": {
+          "1": "1",
+          "1.5": "1.5",
+          "2": "2",
+          "2.5": "2.5",
+          "3": "3",
+          "3.5": "3.5",
+          "4+": "4+"
+        }
+      },
+      "preferredDate": "Fecha Preferida",
+      "preferredTime": {
+        "label": "Hora Preferida",
+        "placeholder": "Seleccionar Hora",
+        "morning": "Mañana (8AM - 12PM)",
+        "afternoon": "Tarde (12PM - 4PM)",
+        "evening": "Noche (4PM - 8PM)"
+      },
+      "frequency": {
+        "label": "Frecuencia del Servicio",
+        "placeholder": "Seleccionar Frecuencia",
+        "oneTime": "Servicio Único",
+        "weekly": "Semanal",
+        "biWeekly": "Quincenal",
+        "monthly": "Mensual"
+      },
+      "specialInstructions": {
+        "label": "Instrucciones Especiales o Requisitos",
+        "placeholder": "Por favor, proporcione cualquier información adicional que nos ayude a servirle mejor"
+      },
+      "photos": {
+        "label": "Subir Fotos (Opcional)",
+        "note": "Puede subir múltiples fotos del espacio(s) a limpiar"
+      },
+      "submit": "Enviar Solicitud"
+    }
+  },
+  "header": {
+    "contact": {
+      "phone": "(555) 123-4567",
+      "email": "info@rubycleaning.com"
+    },
+    "nav": {
+      "home": "Inicio",
+      "services": "Nuestros Servicios",
+      "about": "Acerca de",
+      "contact": "Contacto"
+    },
+    "languages": {
+      "en": "English",
+      "es": "Español",
+      "fr": "Français",
+      "zh": "中文"
+    }
+  },
+  "hero": {
+    "title": "Servicios Profesionales de Limpieza",
+    "subtitle": "Experimente la diferencia con nuestras soluciones expertas de limpieza",
+    "cta": "Solicitar Presupuesto Gratis"
+  },
+  "services": {
+    "title": "Nuestros Servicios",
+    "summary": "Experimente la excelencia en limpieza con Ruby Cleaning Services. Nuestro dedicado equipo de profesionales ofrece una atención meticulosa a los detalles y resultados sobresalientes para cada espacio que tocamos. Desde hogares hasta oficinas, proporcionamos soluciones de limpieza personalizadas que superan las expectativas, asegurando un ambiente prístino y saludable para que usted prospere.",
+    "items": {
+      "holiday": {
+        "title": "Limpieza para Festividades",
+        "description": "Servicios especiales de limpieza para temporadas festivas y eventos"
+      },
+      "moveinout": {
+        "title": "Limpieza de Entrada/Salida",
+        "description": "Servicios completos de limpieza para transiciones de mudanza"
+      },
+      "premier": {
+        "title": "Limpieza Premier",
+        "description": "Servicio de limpieza de lujo con atención premium a los detalles"
+      },
+      "apartment": {
+        "title": "Limpieza de Apartamentos",
+        "description": "Soluciones especializadas de limpieza para apartamentos"
+      },
+      "office": {
+        "title": "Limpieza de Oficinas",
+        "description": "Limpieza profesional para espacios de oficina pequeños"
+      },
+      "deep": {
+        "title": "Limpieza Profunda",
+        "description": "Limpieza profunda minuciosa para un ambiente impecable"
+      },
+      "house": {
+        "title": "Limpieza de Casas",
+        "description": "Servicios completos de limpieza para hogares"
+      },
+      "disinfection": {
+        "title": "Servicios de Desinfección",
+        "description": "Limpieza mejorada con enfoque en la sanitización"
+      },
+      "organization": {
+        "title": "Servicio de Organización",
+        "description": "Ayuda para organizar y despejar su espacio"
+      },
+      "housekeeping": {
+        "title": "Mantenimiento del Hogar",
+        "description": "Servicios regulares de mantenimiento y limpieza"
+      },
+      "other": {
+        "title": "Otro Servicio",
+        "description": "Cuéntenos sobre sus necesidades específicas de limpieza",
+        "placeholder": "Describa sus necesidades de limpieza..."
+      }
+    }
+  },
+  "about": {
+    "title": "Más de 8 Años de Experiencia",
+    "description": "Ruby Cleaning Services ofrece soluciones de limpieza de alta calidad con atención al detalle y satisfacción del cliente como nuestra prioridad."
+  },
+  "contact": {
+    "title": "Contáctenos",
+    "info": {
+      "email": "Correo: info@rubycleaning.com",
+      "phone": "Teléfono: (555) 123-4567",
+      "address": "Dirección: 123 Clean Street, Sparkle City, SC 12345"
+    },
+    "form": {
+      "title": "¿Listo para Transformar su Espacio? ¡Conectémonos!",
+      "fields": {
+        "name": "Nombre",
+        "phone": "Teléfono",
+        "email": "Correo",
+        "message": "Mensaje"
+      },
+      "submit": "Enviar"
+    }
+  },
+  "footer": {
+    "description": "Servicios de limpieza profesionales y confiables para su hogar y negocio.",
+    "quickLinks": {
+      "title": "Enlaces Rápidos",
+      "home": "Inicio",
+      "about": "Sobre Nosotros",
+      "services": "Servicios",
+      "blog": "Blog",
+      "contact": "Contacto"
+    },
+    "contactUs": {
+      "title": "¡Contáctenos!",
+      "address": "2300 Loreto Dr, Fort Worth, TX 76177",
+      "email": "edavidjd76@gmail.com",
+      "phone1": "+1 817-707-2429",
+      "phone2": "+1 682-433-9500"
+    },
+    "copyright": "© 2024 Ruby Cleaning Services. Todos los derechos reservados."
+  }
+}

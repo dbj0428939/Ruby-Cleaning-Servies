@@ -1,11 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from 'react-router-dom';
+import { useTranslation } from './contexts/TranslationContext';
 import './App.css';
 import logo from './assets/logo.svg';
 import EstimatePortal from './EstimatePortal';
 
 function App() {
   const navigate = useNavigate();
+  const { t, changeLanguage } = useTranslation();
 
   React.useEffect(() => {
     const observer = new IntersectionObserver(
@@ -60,8 +62,8 @@ function App() {
       <header className="header">
         <div className="top-bar">
           <div className="contact-bar">
-            <a href="tel:(555) 123-4567"><i className="fas fa-phone"></i> (555) 123-4567</a>
-            <a href="mailto:info@rubycleaning.com"><i className="fas fa-envelope"></i> info@rubycleaning.com</a>
+            <a href={`tel:${t('header.contact.phone')}`}><i className="fas fa-phone"></i> {t('header.contact.phone')}</a>
+            <a href={`mailto:${t('header.contact.email')}`}><i className="fas fa-envelope"></i> {t('header.contact.email')}</a>
           </div>
           <div className="social-links">
             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"><i className="fab fa-facebook"></i></a>
@@ -74,24 +76,62 @@ function App() {
             <img src={logo} alt="Ruby Cleaning Services" />
           </div>
           <ul className="nav-links">
-            <li><Link to="/">Home</Link></li>
+            <li><Link to="/">{t('header.nav.home')}</Link></li>
             <li>
-              <a href="#services">Our Services</a>
+              <a href="#services">{t('header.nav.services')}</a>
               <div className="services-dropdown">
-                <a href="#holiday">Holiday Cleaning Services</a>
-                <a href="#moveinout">Move In/Out Cleaning Services</a>
-                <a href="#premier">Premier Cleaning Services</a>
-                <a href="#apartment">Apartment Cleaning</a>
-                <a href="#office">Small Office Cleaning Services</a>
-                <a href="#deep">Deep Cleaning Services</a>
-                <a href="#house">House Cleaning</a>
-                <a href="#disinfection">Enhanced Disinfection Services</a>
-                <a href="#organization">Organizational Service</a>
-                <a href="#housekeeping">Housekeeping Services</a>
+                {[
+                  { id: 'holiday', name: 'Holiday Cleaning Services' },
+                  { id: 'moveinout', name: 'Move In/Out Cleaning Services' },
+                  { id: 'premier', name: 'Premier Cleaning Services' },
+                  { id: 'apartment', name: 'Apartment Cleaning' },
+                  { id: 'office', name: 'Small Office Cleaning Services' },
+                  { id: 'deep', name: 'Deep Cleaning Services' },
+                  { id: 'house', name: 'House Cleaning' },
+                  { id: 'disinfection', name: 'Enhanced Disinfection Services' },
+                  { id: 'organization', name: 'Organizational Service' },
+                  { id: 'housekeeping', name: 'Housekeeping Services' }
+                ].map(service => (
+                  <a
+                    key={service.id}
+                    href={`#${service.id}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const serviceCard = document.querySelector(`.service-card h3 i.fas.fa-${{
+                        holiday: 'candy-cane',
+                        moveinout: 'truck-moving',
+                        premier: 'crown',
+                        apartment: 'building',
+                        office: 'briefcase',
+                        deep: 'broom',
+                        house: 'home',
+                        disinfection: 'shield-virus',
+                        organization: 'boxes',
+                        housekeeping: 'hand-sparkles'
+                      }[service.id]}`).closest('.service-card');
+                      if (serviceCard) {
+                        serviceCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                      }
+                    }}
+                  >
+                    {service.name}
+                  </a>
+                ))}
               </div>
             </li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#about">{t('header.nav.about')}</a></li>
+            <li><a href="#contact">{t('header.nav.contact')}</a></li>
+            <li>
+              <a href="#" className="translate-icon">
+                <i className="fas fa-globe"></i>
+                <div className="language-dropdown">
+                  <a href="#" onClick={(e) => { e.preventDefault(); changeLanguage('en'); }}>{t('header.languages.en')}</a>
+                  <a href="#" onClick={(e) => { e.preventDefault(); changeLanguage('es'); }}>{t('header.languages.es')}</a>
+                  <a href="#" onClick={(e) => { e.preventDefault(); changeLanguage('fr'); }}>{t('header.languages.fr')}</a>
+                  <a href="#" onClick={(e) => { e.preventDefault(); changeLanguage('zh'); }}>{t('header.languages.zh')}</a>
+                </div>
+              </a>
+            </li>
           </ul>
         </nav>
       </header>
@@ -102,84 +142,84 @@ function App() {
           <>
             <section id="home" className="hero">
               <div className="hero-content">
-                <h1>Professional Cleaning Services</h1>
-                <p>Experience the difference with our expert cleaning solutions</p>
-                <button className="cta-button" onClick={handleEstimateClick}>Request Free Estimate</button>
+                <h1>{t('hero.title')}</h1>
+                <p>{t('hero.subtitle')}</p>
+                <button className="cta-button" onClick={handleEstimateClick}>{t('hero.cta')}</button>
               </div>
             </section>
 
             <section id="services" className="services">
-              <h2>Our Services</h2>
-              <p className="services-summary">Experience excellence in cleanliness with Ruby Cleaning Services. Our dedicated team of professionals delivers meticulous attention to detail and outstanding results for every space we touch. From homes to offices, we provide customized cleaning solutions that exceed expectations, ensuring a pristine and healthy environment for you to thrive in.</p>
+              <h2>{t('services.title')}</h2>
+              <p className="services-summary">{t('services.summary')}</p>
               <div className="service-grid">
                   <div className="service-card">
-                    <h3><i className="fas fa-candy-cane"></i> Holiday Cleaning</h3>
-                    <p>Special cleaning services for holiday seasons and events</p>
+                    <h3><i className="fas fa-candy-cane"></i> {t('services.items.holiday.title')}</h3>
+                    <p>{t('services.items.holiday.description')}</p>
                   </div>
                   <div className="service-card">
-                    <h3><i className="fas fa-truck-moving"></i> Move In/Out Cleaning</h3>
-                    <p>Thorough cleaning services for moving transitions</p>
+                    <h3><i className="fas fa-truck-moving"></i> {t('services.items.moveinout.title')}</h3>
+                    <p>{t('services.items.moveinout.description')}</p>
                   </div>
                   <div className="service-card">
-                    <h3><i className="fas fa-crown"></i> Premier Cleaning</h3>
-                    <p>Luxury cleaning service with premium attention to detail</p>
+                    <h3><i className="fas fa-crown"></i> {t('services.items.premier.title')}</h3>
+                    <p>{t('services.items.premier.description')}</p>
                   </div>
                   <div className="service-card">
-                    <h3><i className="fas fa-building"></i> Apartment Cleaning</h3>
-                    <p>Specialized cleaning solutions for apartments</p>
+                    <h3><i className="fas fa-building"></i> {t('services.items.apartment.title')}</h3>
+                    <p>{t('services.items.apartment.description')}</p>
                   </div>
                   <div className="service-card">
-                    <h3><i className="fas fa-briefcase"></i> Office Cleaning</h3>
-                    <p>Professional cleaning for small office spaces</p>
+                    <h3><i className="fas fa-briefcase"></i> {t('services.items.office.title')}</h3>
+                    <p>{t('services.items.office.description')}</p>
                   </div>
                   <div className="service-card">
-                    <h3><i className="fas fa-broom"></i> Deep Cleaning</h3>
-                    <p>Thorough deep cleaning for a spotless environment</p>
+                    <h3><i className="fas fa-broom"></i> {t('services.items.deep.title')}</h3>
+                    <p>{t('services.items.deep.description')}</p>
                   </div>
                   <div className="service-card">
-                    <h3><i className="fas fa-home"></i> House Cleaning</h3>
-                    <p>Comprehensive cleaning services for homes</p>
+                    <h3><i className="fas fa-home"></i> {t('services.items.house.title')}</h3>
+                    <p>{t('services.items.house.description')}</p>
                   </div>
                   <div className="service-card">
-                    <h3><i className="fas fa-shield-virus"></i> Disinfection Services</h3>
-                    <p>Enhanced cleaning with focus on sanitization</p>
+                    <h3><i className="fas fa-shield-virus"></i> {t('services.items.disinfection.title')}</h3>
+                    <p>{t('services.items.disinfection.description')}</p>
                   </div>
                   <div className="service-card">
-                    <h3><i className="fas fa-boxes"></i> Organization Service</h3>
-                    <p>Help organize and declutter your space</p>
+                    <h3><i className="fas fa-boxes"></i> {t('services.items.organization.title')}</h3>
+                    <p>{t('services.items.organization.description')}</p>
                   </div>
                   <div className="service-card">
-                    <h3><i className="fas fa-hand-sparkles"></i> Housekeeping</h3>
-                    <p>Regular maintenance and cleaning services</p>
+                    <h3><i className="fas fa-hand-sparkles"></i> {t('services.items.housekeeping.title')}</h3>
+                    <p>{t('services.items.housekeeping.description')}</p>
                   </div>
                   <div className="service-card">
-                    <h3><i className="fas fa-plus-circle"></i> Other Service</h3>
-                    <p>Tell us about your specific cleaning needs</p>
-                    <input type="text" placeholder="Describe your cleaning needs..." className="other-service-input" />
+                    <h3><i className="fas fa-plus-circle"></i> {t('services.items.other.title')}</h3>
+                    <p>{t('services.items.other.description')}</p>
+                    <input type="text" placeholder={t('services.items.other.placeholder')} className="other-service-input" />
                   </div>
               </div>
             </section>
 
             <section id="about" className="about">
-              <h2>8+ Years of Experience</h2>
-              <p>Ruby Cleaning Services provides top-quality cleaning solutions with attention to detail and customer satisfaction as our priority.</p>
+              <h2>{t('about.title')}</h2>
+              <p>{t('about.description')}</p>
             </section>
 
             <section id="contact" className="contact">
-              <h2>Contact Us</h2>
+              <h2>{t('contact.title')}</h2>
               <div className="contact-info">
-                <p>Email: info@rubycleaning.com</p>
-                <p>Phone: (555) 123-4567</p>
-                <p>Address: 123 Clean Street, Sparkle City, SC 12345</p>
+                <p>{t('contact.info.email')}</p>
+                <p>{t('contact.info.phone')}</p>
+                <p>{t('contact.info.address')}</p>
               </div>
               <div className="contact-form">
-                <h3>Ready to Transform Your Space? Let's Connect!</h3>
+                <h3>{t('contact.form.title')}</h3>
                 <form>
-                  <input type="text" placeholder="Name" required />
-                  <input type="tel" placeholder="Phone" required />
-                  <input type="email" placeholder="Email" required />
-                  <textarea placeholder="Message" required></textarea>
-                  <button type="submit" className="cta-button">Send</button>
+                  <input type="text" placeholder={t('contact.form.fields.name')} required />
+                  <input type="tel" placeholder={t('contact.form.fields.phone')} required />
+                  <input type="email" placeholder={t('contact.form.fields.email')} required />
+                  <textarea placeholder={t('contact.form.fields.message')} required></textarea>
+                  <button type="submit" className="cta-button">{t('contact.form.submit')}</button>
                 </form>
               </div>
             </section>

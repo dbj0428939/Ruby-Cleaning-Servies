@@ -1,0 +1,199 @@
+{
+  "header": {
+    "contact": {
+      "phone": "(555) 123-4567",
+      "email": "info@rubycleaning.com"
+    },
+    "nav": {
+      "home": "首页",
+      "services": "我们的服务",
+      "about": "关于我们",
+      "contact": "联系我们"
+    },
+    "languages": {
+      "en": "English",
+      "es": "Español",
+      "fr": "Français",
+      "zh": "中文"
+    }
+  },
+  "hero": {
+    "title": "专业清洁服务",
+    "subtitle": "体验我们专业清洁解决方案的与众不同",
+    "cta": "免费获取报价"
+  },
+  "services": {
+    "title": "我们的服务",
+    "summary": "与Ruby清洁服务一起体验卓越的清洁体验。我们专业的团队对每个空间都给予细致入微的关注，提供出色的清洁效果。从家庭到办公室，我们提供超出期望的定制清洁解决方案，确保为您创造一个干净健康的环境。",
+    "items": {
+      "holiday": {
+        "title": "节日清洁",
+        "description": "节日季节和活动的特殊清洁服务"
+      },
+      "moveinout": {
+        "title": "搬入/搬出清洁",
+        "description": "搬家过渡期的全面清洁服务"
+      },
+      "premier": {
+        "title": "高级清洁",
+        "description": "注重细节的豪华清洁服务"
+      },
+      "apartment": {
+        "title": "公寓清洁",
+        "description": "专业的公寓清洁解决方案"
+      },
+      "office": {
+        "title": "办公室清洁",
+        "description": "小型办公空间的专业清洁"
+      },
+      "deep": {
+        "title": "深度清洁",
+        "description": "彻底的深度清洁，打造无暇环境"
+      },
+      "house": {
+        "title": "住宅清洁",
+        "description": "全面的家居清洁服务"
+      },
+      "disinfection": {
+        "title": "消毒服务",
+        "description": "注重消毒的增强型清洁"
+      },
+      "organization": {
+        "title": "整理服务",
+        "description": "帮助整理和清理您的空间"
+      },
+      "housekeeping": {
+        "title": "家政服务",
+        "description": "定期维护和清洁服务"
+      },
+      "other": {
+        "title": "其他服务",
+        "description": "告诉我们您的具体清洁需求",
+        "placeholder": "描述您的清洁需求..."
+      }
+    }
+  },
+  "about": {
+    "title": "8年以上经验",
+    "description": "Ruby清洁服务提供高质量的清洁解决方案，以细节关注和客户满意度为首要任务。"
+  },
+  "contact": {
+    "title": "联系我们",
+    "info": {
+      "email": "邮箱：info@rubycleaning.com",
+      "phone": "电话：(555) 123-4567",
+      "address": "地址：123 Clean Street, Sparkle City, SC 12345"
+    },
+    "form": {
+      "title": "准备好改变您的空间了吗？让我们联系吧！",
+      "fields": {
+        "name": "姓名",
+        "phone": "电话",
+        "email": "邮箱",
+        "message": "留言"
+      },
+      "submit": "发送"
+    }
+  },
+  "estimate": {
+    "title": "免费获取报价",
+    "description": "请填写以下表格，获取针对您空间的定制清洁报价。我们将审核您的要求并尽快提供详细报价。",
+    "sections": {
+      "services": "选择服务",
+      "contact": "联系信息",
+      "property": "物业详情",
+      "serviceDetails": "服务详情"
+    },
+    "form": {
+      "firstName": "名字",
+      "lastName": "姓氏",
+      "email": "电子邮箱",
+      "phone": "电话号码",
+      "address": "街道地址",
+      "city": "城市",
+      "state": "州/省",
+      "zipCode": "邮政编码",
+      "propertyType": {
+        "label": "物业类型",
+        "placeholder": "请选择物业类型",
+        "house": "住宅",
+        "apartment": "公寓",
+        "office": "办公室",
+        "other": "其他"
+      },
+      "squareFootage": {
+        "label": "面积（平方英尺）",
+        "placeholder": "请输入面积"
+      },
+      "bedrooms": {
+        "label": "卧室数量",
+        "placeholder": "请选择卧室数量",
+        "studio": "开间",
+        "options": {
+          "1": "1间卧室",
+          "2": "2间卧室",
+          "3": "3间卧室",
+          "4": "4间卧室",
+          "5+": "5间或以上卧室"
+        }
+      },
+      "bathrooms": {
+        "label": "浴室数量",
+        "placeholder": "请选择浴室数量",
+        "options": {
+          "1": "1间浴室",
+          "1.5": "1.5间浴室",
+          "2": "2间浴室",
+          "2.5": "2.5间浴室",
+          "3": "3间浴室",
+          "3.5": "3.5间浴室",
+          "4+": "4间或以上浴室"
+        }
+      },
+      "preferredDate": "首选日期",
+      "preferredTime": {
+        "label": "首选时间",
+        "placeholder": "请选择时间段",
+        "morning": "上午",
+        "afternoon": "下午",
+        "evening": "晚上"
+      },
+      "frequency": {
+        "label": "服务频率",
+        "placeholder": "请选择服务频率",
+        "oneTime": "一次性服务",
+        "weekly": "每周",
+        "biWeekly": "每两周",
+        "monthly": "每月"
+      },
+      "specialInstructions": {
+        "label": "特殊说明",
+        "placeholder": "请提供任何特殊要求或额外说明"
+      },
+      "photos": {
+        "label": "上传照片",
+        "note": "可选：上传空间照片以帮助我们更好地了解您的需求"
+      },
+      "submit": "提交估价请求"
+    }
+  },
+  "footer": {
+    "description": "为您的家居和企业提供专业可靠的清洁服务。",
+    "quickLinks": {
+      "title": "快速链接",
+      "home": "首页",
+      "about": "关于我们",
+      "services": "服务",
+      "blog": "博客",
+      "contact": "联系我们"
+    },
+    "contactUs": {
+      "title": "联系我们！",
+      "address": "2300 Loreto Dr, Fort Worth, TX 76177",
+      "email": "edavidjd76@gmail.com",
+      "phone1": "+1 817-707-2429",
+      "phone2": "+1 682-433-9500"
+    },
+    "copyright": "© 2024 Ruby清洁服务。保留所有权利。"
+  }
+}

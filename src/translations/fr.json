@@ -1,0 +1,281 @@
+{
+  "header": {
+    "estimate": {
+    "title": "Demander un Devis Gratuit",
+    "description": "Remplissez le formulaire ci-dessous pour obtenir un devis personnalisé pour votre espace. Nous examinerons vos besoins et vous enverrons un devis détaillé.",
+    "sections": {
+      "services": "Sélectionner les Services",
+      "contact": "Informations de Contact",
+      "property": "Détails de la Propriété",
+      "serviceDetails": "Détails du Service"
+    },
+    "form": {
+      "firstName": "Prénom",
+      "lastName": "Nom",
+      "email": "Adresse Email",
+      "phone": "Numéro de Téléphone",
+      "address": "Adresse",
+      "city": "Ville",
+      "state": "État",
+      "zipCode": "Code Postal",
+      "propertyType": {
+        "label": "Type de Propriété",
+        "placeholder": "Sélectionner le type de propriété",
+        "house": "Maison",
+        "apartment": "Appartement",
+        "office": "Bureau",
+        "other": "Autre"
+      },
+      "squareFootage": {
+        "label": "Surface (en pieds carrés)",
+        "placeholder": "Entrer la surface"
+      },
+      "bedrooms": {
+        "label": "Nombre de Chambres",
+        "placeholder": "Sélectionner le nombre de chambres",
+        "studio": "Studio",
+        "options": {
+          "1": "1 Chambre",
+          "2": "2 Chambres",
+          "3": "3 Chambres",
+          "4": "4 Chambres",
+          "5+": "5+ Chambres"
+        }
+      },
+      "bathrooms": {
+        "label": "Nombre de Salles de Bain",
+        "placeholder": "Sélectionner le nombre de salles de bain",
+        "options": {
+          "1": "1 Salle de bain",
+          "1.5": "1.5 Salles de bain",
+          "2": "2 Salles de bain",
+          "2.5": "2.5 Salles de bain",
+          "3": "3 Salles de bain",
+          "3.5": "3.5 Salles de bain",
+          "4+": "4+ Salles de bain"
+        }
+      },
+      "preferredDate": "Date Préférée",
+      "preferredTime": {
+        "label": "Horaire Préféré",
+        "placeholder": "Sélectionner l'horaire préféré",
+        "morning": "Matin",
+        "afternoon": "Après-midi",
+        "evening": "Soir"
+      },
+      "frequency": {
+        "label": "Fréquence du Service",
+        "placeholder": "Sélectionner la fréquence",
+        "oneTime": "Une fois",
+        "weekly": "Hebdomadaire",
+        "biWeekly": "Bi-hebdomadaire",
+        "monthly": "Mensuel"
+      },
+      "specialInstructions": {
+        "label": "Instructions Spéciales",
+        "placeholder": "Ajoutez des instructions spéciales ou des demandes particulières..."
+      },
+      "photos": {
+        "label": "Photos de l'Espace",
+        "note": "Ajoutez des photos de votre espace pour nous aider à mieux comprendre vos besoins"
+      },
+      "submit": "Soumettre la Demande"
+    }
+  },
+  "contact": {
+      "phone": "(555) 123-4567",
+      "email": "info@rubycleaning.com"
+    },
+    "nav": {
+      "home": "Accueil",
+      "services": "Nos Services",
+      "about": "À Propos",
+      "contact": "Contact"
+    },
+    "languages": {
+      "en": "English",
+      "es": "Español",
+      "fr": "Français",
+      "zh": "中文"
+    }
+  },
+  "hero": {
+    "title": "Services de Nettoyage Professionnels",
+    "subtitle": "Découvrez la différence avec nos solutions de nettoyage expertes",
+    "cta": "Demander un Devis Gratuit"
+  },
+  "services": {
+    "title": "Nos Services",
+    "summary": "Découvrez l'excellence en matière de propreté avec Ruby Cleaning Services. Notre équipe dévouée de professionnels apporte une attention méticuleuse aux détails et des résultats exceptionnels pour chaque espace que nous traitons. Des maisons aux bureaux, nous fournissons des solutions de nettoyage personnalisées qui dépassent les attentes, garantissant un environnement impeccable et sain où vous pourrez vous épanouir.",
+    "items": {
+      "holiday": {
+        "title": "Nettoyage des Fêtes",
+        "description": "Services de nettoyage spéciaux pour les périodes de fêtes et événements"
+      },
+      "moveinout": {
+        "title": "Nettoyage d'Emménagement/Déménagement",
+        "description": "Services de nettoyage complets pour les transitions de déménagement"
+      },
+      "premier": {
+        "title": "Nettoyage Premium",
+        "description": "Service de nettoyage de luxe avec une attention premium aux détails"
+      },
+      "apartment": {
+        "title": "Nettoyage d'Appartement",
+        "description": "Solutions de nettoyage spécialisées pour les appartements"
+      },
+      "office": {
+        "title": "Nettoyage de Bureau",
+        "description": "Nettoyage professionnel pour les petits espaces de bureau"
+      },
+      "deep": {
+        "title": "Nettoyage en Profondeur",
+        "description": "Nettoyage approfondi pour un environnement impeccable"
+      },
+      "house": {
+        "title": "Nettoyage de Maison",
+        "description": "Services de nettoyage complets pour les maisons"
+      },
+      "disinfection": {
+        "title": "Services de Désinfection",
+        "description": "Nettoyage renforcé avec accent sur la désinfection"
+      },
+      "organization": {
+        "title": "Service d'Organisation",
+        "description": "Aide à l'organisation et au désencombrement de votre espace"
+      },
+      "housekeeping": {
+        "title": "Service d'Entretien",
+        "description": "Services réguliers d'entretien et de nettoyage"
+      },
+      "other": {
+        "title": "Autre Service",
+        "description": "Parlez-nous de vos besoins spécifiques de nettoyage",
+        "placeholder": "Décrivez vos besoins de nettoyage..."
+      }
+    }
+  },
+  "about": {
+    "title": "Plus de 8 Ans d'Expérience",
+    "description": "Ruby Cleaning Services fournit des solutions de nettoyage de haute qualité avec une attention particulière aux détails et la satisfaction client comme priorité."
+  },
+  "estimate": {
+    "title": "Demander un Devis Gratuit",
+    "description": "Remplissez le formulaire ci-dessous pour obtenir un devis personnalisé pour votre espace. Nous examinerons vos besoins et vous enverrons un devis détaillé.",
+    "sections": {
+      "services": "Sélectionner les Services",
+      "contact": "Informations de Contact",
+      "property": "Détails de la Propriété",
+      "serviceDetails": "Détails du Service"
+    },
+    "form": {
+      "firstName": "Prénom",
+      "lastName": "Nom",
+      "email": "Adresse Email",
+      "phone": "Numéro de Téléphone",
+      "address": "Adresse",
+      "city": "Ville",
+      "state": "État",
+      "zipCode": "Code Postal",
+      "propertyType": {
+        "label": "Type de Propriété",
+        "placeholder": "Sélectionner le type de propriété",
+        "house": "Maison",
+        "apartment": "Appartement",
+        "office": "Bureau",
+        "other": "Autre"
+      },
+      "squareFootage": {
+        "label": "Surface (en pieds carrés)",
+        "placeholder": "Entrer la surface"
+      },
+      "bedrooms": {
+        "label": "Nombre de Chambres",
+        "placeholder": "Sélectionner le nombre de chambres",
+        "studio": "Studio",
+        "options": {
+          "1": "1 Chambre",
+          "2": "2 Chambres",
+          "3": "3 Chambres",
+          "4": "4 Chambres",
+          "5+": "5+ Chambres"
+        }
+      },
+      "bathrooms": {
+        "label": "Nombre de Salles de Bain",
+        "placeholder": "Sélectionner le nombre de salles de bain",
+        "options": {
+          "1": "1 Salle de bain",
+          "1.5": "1.5 Salles de bain",
+          "2": "2 Salles de bain",
+          "2.5": "2.5 Salles de bain",
+          "3": "3 Salles de bain",
+          "3.5": "3.5 Salles de bain",
+          "4+": "4+ Salles de bain"
+        }
+      },
+      "preferredDate": "Date Préférée",
+      "preferredTime": {
+        "label": "Horaire Préféré",
+        "placeholder": "Sélectionner l'horaire préféré",
+        "morning": "Matin",
+        "afternoon": "Après-midi",
+        "evening": "Soir"
+      },
+      "frequency": {
+        "label": "Fréquence du Service",
+        "placeholder": "Sélectionner la fréquence",
+        "oneTime": "Une fois",
+        "weekly": "Hebdomadaire",
+        "biWeekly": "Bi-hebdomadaire",
+        "monthly": "Mensuel"
+      },
+      "specialInstructions": {
+        "label": "Instructions Spéciales",
+        "placeholder": "Ajoutez des instructions spéciales ou des demandes particulières..."
+      },
+      "photos": {
+        "label": "Photos de l'Espace",
+        "note": "Ajoutez des photos de votre espace pour nous aider à mieux comprendre vos besoins"
+      },
+      "submit": "Soumettre la Demande"
+    }
+  },
+  "contact": {
+    "title": "Contactez-nous",
+    "info": {
+      "email": "Email: info@rubycleaning.com",
+      "phone": "Téléphone: (555) 123-4567",
+      "address": "Adresse: 123 Clean Street, Sparkle City, SC 12345"
+    },
+    "form": {
+      "title": "Prêt à Transformer Votre Espace ? Contactez-nous !",
+      "fields": {
+        "name": "Nom",
+        "phone": "Téléphone",
+        "email": "Email",
+        "message": "Message"
+      },
+      "submit": "Envoyer"
+    }
+  },
+  "footer": {
+    "description": "Services de nettoyage professionnels et fiables pour votre maison et votre entreprise.",
+    "quickLinks": {
+      "title": "Liens Rapides",
+      "home": "Accueil",
+      "about": "À Propos",
+      "services": "Services",
+      "blog": "Blog",
+      "contact": "Contact"
+    },
+    "contactUs": {
+      "title": "Contactez-nous !",
+      "address": "2300 Loreto Dr, Fort Worth, TX 76177",
+      "email": "edavidjd76@gmail.com",
+      "phone1": "+1 817-707-2429",
+      "phone2": "+1 682-433-9500"
+    },
+    "copyright": "© 2024 Ruby Cleaning Services. Tous droits réservés."
+  }
+}

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from './contexts/TranslationContext';
 import './EstimatePortal.css';
 
 function EstimatePortal() {
@@ -23,17 +24,19 @@ function EstimatePortal() {
     photos: []
   });
 
+  const { t } = useTranslation();
+
   const services = [
-    { id: 'holiday', name: 'Holiday Cleaning' },
-    { id: 'moveinout', name: 'Move IN/Out Cleaning' },
-    { id: 'premier', name: 'Premier Cleaning' },
-    { id: 'apartment', name: 'Apartment Cleaning' },
-    { id: 'office', name: 'Small Office Cleaning' },
-    { id: 'deep', name: 'Deep Cleaning' },
-    { id: 'house', name: 'House Cleaning' },
-    { id: 'disinfection', name: 'Enhanced Disinfection' },
-    { id: 'organization', name: 'Organization Service' },
-    { id: 'housekeeping', name: 'Housekeeping' }
+    { id: 'holiday', icon: 'candy-cane', name: t('services.items.holiday.title'), description: t('services.items.holiday.description') },
+    { id: 'moveinout', icon: 'truck-moving', name: t('services.items.moveinout.title'), description: t('services.items.moveinout.description') },
+    { id: 'premier', icon: 'crown', name: t('services.items.premier.title'), description: t('services.items.premier.description') },
+    { id: 'apartment', icon: 'building', name: t('services.items.apartment.title'), description: t('services.items.apartment.description') },
+    { id: 'office', icon: 'briefcase', name: t('services.items.office.title'), description: t('services.items.office.description') },
+    { id: 'deep', icon: 'broom', name: t('services.items.deep.title'), description: t('services.items.deep.description') },
+    { id: 'house', icon: 'home', name: t('services.items.house.title'), description: t('services.items.house.description') },
+    { id: 'disinfection', icon: 'shield-virus', name: t('services.items.disinfection.title'), description: t('services.items.disinfection.description') },
+    { id: 'organization', icon: 'boxes', name: t('services.items.organization.title'), description: t('services.items.organization.description') },
+    { id: 'housekeeping', icon: 'hand-sparkles', name: t('services.items.housekeeping.title'), description: t('services.items.housekeeping.description') }
   ];
 
   const handleServiceChange = (serviceId) => {
@@ -71,15 +74,12 @@ function EstimatePortal() {
   return (
     <div className="estimate-portal">
       <div className="portal-container">
-        <h1>Request a Free Estimate</h1>
-        <p className="portal-description">
-          Please fill out the form below to receive a detailed estimate for our cleaning services.
-          The more information you provide, the more accurate our estimate will be.
-        </p>
+        <h1>{t('estimate.title')}</h1>
+        <p className="portal-description">{t('estimate.description')}</p>
 
         <form onSubmit={handleSubmit} className="estimate-form">
           <section className="form-section">
-            <h2>Select Services Needed</h2>
+            <h2>{t('estimate.sections.services')}</h2>
             <div className="services-grid">
               {services.map(service => (
                 <div key={service.id} className="service-card">
@@ -104,6 +104,7 @@ function EstimatePortal() {
                         {service.id === 'housekeeping' && <i className="fas fa-hand-sparkles"></i>}
                         {service.name}
                       </h3>
+                      <p className="service-description">{service.description}</p>
                     </label>
                   </div>
                 </div>
@@ -112,10 +113,10 @@ function EstimatePortal() {
           </section>
 
           <section className="form-section">
-            <h2>Contact Information</h2>
+            <h2>{t('estimate.sections.contact')}</h2>
             <div className="form-row">
               <div className="form-group">
-                <label htmlFor="firstName">First Name*</label>
+                <label htmlFor="firstName">{t('estimate.form.firstName')}</label>
                 <input
                   type="text"
                   id="firstName"
@@ -126,7 +127,7 @@ function EstimatePortal() {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="lastName">Last Name*</label>
+                <label htmlFor="lastName">{t('estimate.form.lastName')}</label>
                 <input
                   type="text"
                   id="lastName"
@@ -140,7 +141,7 @@ function EstimatePortal() {
 
             <div className="form-row">
               <div className="form-group">
-                <label htmlFor="email">Email*</label>
+                <label htmlFor="email">{t('estimate.form.email')}</label>
                 <input
                   type="email"
                   id="email"
@@ -151,7 +152,7 @@ function EstimatePortal() {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="phone">Phone Number*</label>
+                <label htmlFor="phone">{t('estimate.form.phone')}</label>
                 <input
                   type="tel"
                   id="phone"
@@ -165,9 +166,9 @@ function EstimatePortal() {
           </section>
 
           <section className="form-section">
-            <h2>Property Information</h2>
+            <h2>{t('estimate.sections.property')}</h2>
             <div className="form-group">
-              <label htmlFor="address">Street Address*</label>
+              <label htmlFor="address">{t('estimate.form.address')}</label>
               <input
                 type="text"
                 id="address"
@@ -180,7 +181,7 @@ function EstimatePortal() {
 
             <div className="form-row">
               <div className="form-group">
-                <label htmlFor="city">City*</label>
+                <label htmlFor="city">{t('estimate.form.city')}</label>
                 <input
                   type="text"
                   id="city"
@@ -191,7 +192,7 @@ function EstimatePortal() {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="state">State*</label>
+                <label htmlFor="state">{t('estimate.form.state')}</label>
                 <input
                   type="text"
                   id="state"
@@ -202,7 +203,7 @@ function EstimatePortal() {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="zipCode">ZIP Code*</label>
+                <label htmlFor="zipCode">{t('estimate.form.zipCode')}</label>
                 <input
                   type="text"
                   id="zipCode"
@@ -216,7 +217,7 @@ function EstimatePortal() {
 
             <div className="form-row">
               <div className="form-group">
-                <label htmlFor="propertyType">Property Type*</label>
+                <label htmlFor="propertyType">{t('estimate.form.propertyType.label')}</label>
                 <select
                   id="propertyType"
                   name="propertyType"
@@ -224,53 +225,53 @@ function EstimatePortal() {
                   onChange={handleInputChange}
                   required
                 >
-                  <option value="">Select Property Type</option>
-                  <option value="house">House</option>
-                  <option value="apartment">Apartment</option>
-                  <option value="office">Office</option>
-                  <option value="other">Other</option>
+                  <option value="">{t('estimate.form.propertyType.placeholder')}</option>
+                  <option value="house">{t('estimate.form.propertyType.house')}</option>
+                  <option value="apartment">{t('estimate.form.propertyType.apartment')}</option>
+                  <option value="office">{t('estimate.form.propertyType.office')}</option>
+                  <option value="other">{t('estimate.form.propertyType.other')}</option>
                 </select>
               </div>
               <div className="form-group">
-                <label htmlFor="squareFootage">Square Footage</label>
+                <label htmlFor="squareFootage">{t('estimate.form.squareFootage.label')}</label>
                 <input
                   type="number"
                   id="squareFootage"
                   name="squareFootage"
                   value={formData.squareFootage}
                   onChange={handleInputChange}
-                  placeholder="Approximate square feet"
+                  placeholder={t('estimate.form.squareFootage.placeholder')}
                 />
               </div>
             </div>
 
             <div className="form-row">
               <div className="form-group">
-                <label htmlFor="bedrooms">Number of Bedrooms</label>
+                <label htmlFor="bedrooms">{t('estimate.form.bedrooms.label')}</label>
                 <select
                   id="bedrooms"
                   name="bedrooms"
                   value={formData.bedrooms}
                   onChange={handleInputChange}
                 >
-                  <option value="">Select</option>
-                  <option value="studio">Studio</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5+">5+</option>
+                  <option value="">{t('estimate.form.bedrooms.placeholder')}</option>
+                  <option value="studio">{t('estimate.form.bedrooms.studio')}</option>
+                  <option value="1">{t('estimate.form.bedrooms.options.1')}</option>
+                  <option value="2">{t('estimate.form.bedrooms.options.2')}</option>
+                  <option value="3">{t('estimate.form.bedrooms.options.3')}</option>
+                  <option value="4">{t('estimate.form.bedrooms.options.4')}</option>
+                  <option value="5+">{t('estimate.form.bedrooms.options.5+')}</option>
                 </select>
               </div>
               <div className="form-group">
-                <label htmlFor="bathrooms">Number of Bathrooms</label>
+                <label htmlFor="bathrooms">{t('estimate.form.bathrooms.label')}</label>
                 <select
                   id="bathrooms"
                   name="bathrooms"
                   value={formData.bathrooms}
                   onChange={handleInputChange}
                 >
-                  <option value="">Select</option>
+                  <option value="">{t('estimate.form.bathrooms.placeholder')}</option>
                   <option value="1">1</option>
                   <option value="1.5">1.5</option>
                   <option value="2">2</option>
@@ -284,10 +285,10 @@ function EstimatePortal() {
           </section>
 
           <section className="form-section">
-            <h2>Service Details</h2>
+            <h2>{t('estimate.sections.serviceDetails')}</h2>
             <div className="form-row">
               <div className="form-group">
-                <label htmlFor="preferredDate">Preferred Date</label>
+                <label htmlFor="preferredDate">{t('estimate.form.preferredDate')}</label>
                 <input
                   type="date"
                   id="preferredDate"
@@ -297,51 +298,51 @@ function EstimatePortal() {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="preferredTime">Preferred Time</label>
+                <label htmlFor="preferredTime">{t('estimate.form.preferredTime.label')}</label>
                 <select
                   id="preferredTime"
                   name="preferredTime"
                   value={formData.preferredTime}
                   onChange={handleInputChange}
                 >
-                  <option value="">Select Time</option>
-                  <option value="morning">Morning (8AM - 12PM)</option>
-                  <option value="afternoon">Afternoon (12PM - 4PM)</option>
-                  <option value="evening">Evening (4PM - 8PM)</option>
+                  <option value="">{t('estimate.form.preferredTime.placeholder')}</option>
+                  <option value="morning">{t('estimate.form.preferredTime.morning')}</option>
+                  <option value="afternoon">{t('estimate.form.preferredTime.afternoon')}</option>
+                  <option value="evening">{t('estimate.form.preferredTime.evening')}</option>
                 </select>
               </div>
             </div>
 
             <div className="form-group">
-              <label htmlFor="frequency">Service Frequency</label>
+              <label htmlFor="frequency">{t('estimate.form.frequency.label')}</label>
               <select
                 id="frequency"
                 name="frequency"
                 value={formData.frequency}
                 onChange={handleInputChange}
               >
-                <option value="">Select Frequency</option>
-                <option value="one-time">One-time Service</option>
-                <option value="weekly">Weekly</option>
-                <option value="bi-weekly">Bi-weekly</option>
-                <option value="monthly">Monthly</option>
+                <option value="">{t('estimate.form.frequency.placeholder')}</option>
+                <option value="one-time">{t('estimate.form.frequency.oneTime')}</option>
+                <option value="weekly">{t('estimate.form.frequency.weekly')}</option>
+                <option value="bi-weekly">{t('estimate.form.frequency.biWeekly')}</option>
+                <option value="monthly">{t('estimate.form.frequency.monthly')}</option>
               </select>
             </div>
 
             <div className="form-group">
-              <label htmlFor="specialInstructions">Special Instructions or Requirements</label>
+              <label htmlFor="specialInstructions">{t('estimate.form.specialInstructions.label')}</label>
               <textarea
                 id="specialInstructions"
                 name="specialInstructions"
                 value={formData.specialInstructions}
                 onChange={handleInputChange}
-                placeholder="Please provide any additional information that will help us serve you better"
+                placeholder={t('estimate.form.specialInstructions.placeholder')}
                 rows="4"
               ></textarea>
             </div>
 
             <div className="form-group">
-              <label htmlFor="photos">Upload Photos (Optional)</label>
+              <label htmlFor="photos">{t('estimate.form.photos.label')}</label>
               <div className="photo-upload">
                 <input
                   type="file"
@@ -351,13 +352,13 @@ function EstimatePortal() {
                   multiple
                   accept="image/*"
                 />
-                <p className="upload-note">You can upload multiple photos of the space(s) to be cleaned</p>
+                <p className="upload-note">{t('estimate.form.photos.note')}</p>
               </div>
             </div>
           </section>
 
           <div className="form-actions">
-            <button type="submit" className="submit-button">Submit Request</button>
+            <button type="submit" className="submit-button">{t('estimate.form.submit')}</button>
           </div>
         </form>
       </div>

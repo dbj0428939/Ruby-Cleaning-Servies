@@ -1,0 +1,199 @@
+{
+  "estimate": {
+    "title": "Request a Free Estimate",
+    "description": "Fill out the form below to get a customized cleaning estimate for your space. We'll review your requirements and get back to you with a detailed quote.",
+    "sections": {
+      "services": "Select Services",
+      "contact": "Contact Information",
+      "property": "Property Details",
+      "serviceDetails": "Service Details"
+    },
+    "form": {
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "address": "Street Address",
+      "city": "City",
+      "state": "State",
+      "zipCode": "ZIP Code",
+      "propertyType": {
+        "label": "Property Type",
+        "placeholder": "Select property type",
+        "house": "House",
+        "apartment": "Apartment",
+        "office": "Office",
+        "other": "Other"
+      },
+      "squareFootage": {
+        "label": "Square Footage",
+        "placeholder": "Enter square footage"
+      },
+      "bedrooms": {
+        "label": "Number of Bedrooms",
+        "placeholder": "Select number of bedrooms",
+        "studio": "Studio",
+        "options": {
+          "1": "1 Bedroom",
+          "2": "2 Bedrooms",
+          "3": "3 Bedrooms",
+          "4": "4 Bedrooms",
+          "5+": "5+ Bedrooms"
+        }
+      },
+      "bathrooms": {
+        "label": "Number of Bathrooms",
+        "placeholder": "Select number of bathrooms",
+        "options": {
+          "1": "1 Bathroom",
+          "1.5": "1.5 Bathrooms",
+          "2": "2 Bathrooms",
+          "2.5": "2.5 Bathrooms",
+          "3": "3 Bathrooms",
+          "3.5": "3.5 Bathrooms",
+          "4+": "4+ Bathrooms"
+        }
+      },
+      "preferredDate": "Preferred Service Date",
+      "preferredTime": {
+        "label": "Preferred Time",
+        "placeholder": "Select preferred time",
+        "morning": "Morning (8AM - 12PM)",
+        "afternoon": "Afternoon (12PM - 4PM)",
+        "evening": "Evening (4PM - 8PM)"
+      },
+      "frequency": {
+        "label": "Service Frequency",
+        "placeholder": "Select service frequency",
+        "oneTime": "One-time Service",
+        "weekly": "Weekly",
+        "biWeekly": "Bi-weekly",
+        "monthly": "Monthly"
+      },
+      "specialInstructions": {
+        "label": "Special Instructions",
+        "placeholder": "Any specific requirements or areas that need special attention?"
+      },
+      "photos": {
+        "label": "Upload Photos (Optional)",
+        "note": "Upload photos of the areas that need cleaning (Max 5 photos, 5MB each)"
+      },
+      "submit": "Submit Request"
+    }
+  },
+  "header": {
+    "contact": {
+      "phone": "(555) 123-4567",
+      "email": "info@rubycleaning.com"
+    },
+    "nav": {
+      "home": "Home",
+      "services": "Our Services",
+      "about": "About",
+      "contact": "Contact"
+    },
+    "languages": {
+      "en": "English",
+      "es": "Español",
+      "fr": "Français",
+      "zh": "中文"
+    }
+  },
+  "hero": {
+    "title": "Professional Cleaning Services",
+    "subtitle": "Experience the difference with our expert cleaning solutions",
+    "cta": "Request Free Estimate"
+  },
+  "services": {
+    "title": "Our Services",
+    "summary": "Experience excellence in cleanliness with Ruby Cleaning Services. Our dedicated team of professionals delivers meticulous attention to detail and outstanding results for every space we touch. From homes to offices, we provide customized cleaning solutions that exceed expectations, ensuring a pristine and healthy environment for you to thrive in.",
+    "items": {
+      "holiday": {
+        "title": "Holiday Cleaning",
+        "description": "Special cleaning services for holiday seasons and events"
+      },
+      "moveinout": {
+        "title": "Move In/Out Cleaning",
+        "description": "Thorough cleaning services for moving transitions"
+      },
+      "premier": {
+        "title": "Premier Cleaning",
+        "description": "Luxury cleaning service with premium attention to detail"
+      },
+      "apartment": {
+        "title": "Apartment Cleaning",
+        "description": "Specialized cleaning solutions for apartments"
+      },
+      "office": {
+        "title": "Office Cleaning",
+        "description": "Professional cleaning for small office spaces"
+      },
+      "deep": {
+        "title": "Deep Cleaning",
+        "description": "Thorough deep cleaning for a spotless environment"
+      },
+      "house": {
+        "title": "House Cleaning",
+        "description": "Comprehensive cleaning services for homes"
+      },
+      "disinfection": {
+        "title": "Disinfection Services",
+        "description": "Enhanced cleaning with focus on sanitization"
+      },
+      "organization": {
+        "title": "Organization Service",
+        "description": "Help organize and declutter your space"
+      },
+      "housekeeping": {
+        "title": "Housekeeping",
+        "description": "Regular maintenance and cleaning services"
+      },
+      "other": {
+        "title": "Other Service",
+        "description": "Tell us about your specific cleaning needs",
+        "placeholder": "Describe your cleaning needs..."
+      }
+    }
+  },
+  "about": {
+    "title": "8+ Years of Experience",
+    "description": "Ruby Cleaning Services provides top-quality cleaning solutions with attention to detail and customer satisfaction as our priority."
+  },
+  "contact": {
+    "title": "Contact Us",
+    "info": {
+      "email": "Email: info@rubycleaning.com",
+      "phone": "Phone: (555) 123-4567",
+      "address": "Address: 123 Clean Street, Sparkle City, SC 12345"
+    },
+    "form": {
+      "title": "Ready to Transform Your Space? Let's Connect!",
+      "fields": {
+        "name": "Name",
+        "phone": "Phone",
+        "email": "Email",
+        "message": "Message"
+      },
+      "submit": "Send"
+    }
+  },
+  "footer": {
+    "description": "Professional and reliable cleaning services for your home and business.",
+    "quickLinks": {
+      "title": "Quick Link",
+      "home": "Home",
+      "about": "About Us",
+      "services": "Services",
+      "blog": "Blog",
+      "contact": "Contact"
+    },
+    "contactUs": {
+      "title": "Contact Us!",
+      "address": "2300 Loreto Dr, Fort Worth, TX 76177",
+      "email": "edavidjd76@gmail.com",
+      "phone1": "+1 817-707-2429",
+      "phone2": "+1 682-433-9500"
+    },
+    "copyright": "© 2024 Ruby Cleaning Services. All rights reserved."
+  }
+}
