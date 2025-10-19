@@ -1,13 +1,42 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, useNavigate, useLocation } from 'react-router-dom';
 import { useTranslation } from './contexts/TranslationContext';
 import './App.css';
 import logo from './assets/logo.svg';
 import EstimatePortal from './EstimatePortal';
+import ContactEmailForm from './ContactEmailForm';
+import PhotosGallery from './PhotosGallery';
 
 function App() {
   const navigate = useNavigate();
+  const location = useLocation();
   const { t, changeLanguage } = useTranslation();
+
+  // When other routes navigate to '/', they'll include { state: { scrollTo: '<id>' } }
+  // This effect listens for that and performs a smooth scroll to the target element.
+  React.useEffect(() => {
+    if (location && location.state && location.state.scrollTo) {
+      const id = location.state.scrollTo;
+      const scrollToId = () => {
+        const el = document.getElementById(id) || document.querySelector(`.${id}`) || document.querySelector(`#${id}`) || document.querySelector('.' + id);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          // clear the navigation state so repeated visits don't re-trigger
+          navigate(location.pathname, { replace: true, state: {} });
+        } else {
+          // retry a bit later in case DOM isn't ready yet
+          setTimeout(() => {
+            const el2 = document.getElementById(id) || document.querySelector(`#${id}`) || document.querySelector(`.${id}`);
+            if (el2) {
+              el2.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              navigate(location.pathname, { replace: true, state: {} });
+            }
+          }, 120);
+        }
+      };
+      scrollToId();
+    }
+  }, [location, navigate]);
 
   React.useEffect(() => {
     const observer = new IntersectionObserver(
@@ -57,18 +86,28 @@ function App() {
     navigate('/estimate');
   };
 
+  const handleNavToSection = (id) => {
+    // If we're already on the homepage, just scroll
+    if (window.location.pathname === '/' || location.pathname === '/') {
+      const el = document.getElementById(id) || document.querySelector(`#${id}`) || document.querySelector(`.${id}`);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+    }
+
+    // Otherwise navigate to home and pass the desired id in state
+    navigate('/', { state: { scrollTo: id } });
+  };
+
   return (
     <div className="app">
       <header className="header">
         <div className="top-bar">
           <div className="contact-bar">
-            <a href={`tel:${t('header.contact.phone')}`}><i className="fas fa-phone"></i> {t('header.contact.phone')}</a>
-            <a href={`mailto:${t('header.contact.email')}`}><i className="fas fa-envelope"></i> {t('header.contact.email')}</a>
-          </div>
-          <div className="social-links">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"><i className="fab fa-facebook"></i></a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"><i className="fab fa-twitter"></i></a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><i className="fab fa-instagram"></i></a>
+            <span><i className="fas fa-map-marker-alt" style={{color: '#e91e63'}}></i> 2300 Loreto Dr, Fort Worth, TX 76177</span>
+            <span><i className="fas fa-envelope" style={{color: '#e91e63'}}></i> esmeralda@rubycleaningservice.com</span>
+            <span><i className="fas fa-phone" style={{color: '#e91e63'}}></i> 469-993-5909</span>
           </div>
         </div>
         <nav>
@@ -78,7 +117,7 @@ function App() {
           <ul className="nav-links">
             <li><Link to="/">{t('header.nav.home')}</Link></li>
             <li>
-              <a href="#services">{t('header.nav.services')}</a>
+              <a href="#" onClick={(e) => { e.preventDefault(); handleNavToSection('services'); }}>{t('header.nav.services')}</a>
               <div className="services-dropdown">
                 {[
                   { id: 'holiday', name: 'Holiday Cleaning Services' },
@@ -94,33 +133,17 @@ function App() {
                 ].map(service => (
                   <a
                     key={service.id}
-                    href={`#${service.id}`}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      const serviceCard = document.querySelector(`.service-card h3 i.fas.fa-${{
-                        holiday: 'candy-cane',
-                        moveinout: 'truck-moving',
-                        premier: 'crown',
-                        apartment: 'building',
-                        office: 'briefcase',
-                        deep: 'broom',
-                        house: 'home',
-                        disinfection: 'shield-virus',
-                        organization: 'boxes',
-                        housekeeping: 'hand-sparkles'
-                      }[service.id]}`).closest('.service-card');
-                      if (serviceCard) {
-                        serviceCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                      }
-                    }}
+                    href="#"
+                    onClick={(e) => { e.preventDefault(); handleNavToSection(service.id); }}
                   >
                     {service.name}
                   </a>
                 ))}
               </div>
             </li>
-            <li><a href="#about">{t('header.nav.about')}</a></li>
-            <li><a href="#contact">{t('header.nav.contact')}</a></li>
+            <li><a href="#" onClick={(e) => { e.preventDefault(); handleNavToSection('about'); }}>{t('header.nav.about')}</a></li>
+            <li><a href="#" onClick={(e) => { e.preventDefault(); handleNavToSection('contact'); }}>{t('header.nav.contact')}</a></li>
+            <li><Link to="/photos">Photos</Link></li>
             <li>
               <a href="#" className="translate-icon">
                 <i className="fas fa-globe"></i>
@@ -137,65 +160,102 @@ function App() {
       </header>
 
       <Routes>
-        <Route path="/estimate" element={<EstimatePortal />} />
+  <Route path="/estimate" element={<EstimatePortal />} />
+  <Route path="/photos" element={<PhotosGallery />} />
         <Route path="/" element={
           <>
-            <section id="home" className="hero">
-              <div className="hero-content">
-                <h1>{t('hero.title')}</h1>
-                <p>{t('hero.subtitle')}</p>
-                <button className="cta-button" onClick={handleEstimateClick}>{t('hero.cta')}</button>
+            <div style={{
+              width: '100vw',
+              height: '100vh',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              backgroundImage: 'linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&q=80)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              color: '#FFFFFF',
+              padding: '0 20px',
+              marginTop: '-100px'
+            }}>
+              <div style={{
+                maxWidth: '1200px',
+                textAlign: 'center',
+                animation: 'fadeIn 1.5s ease-out'
+              }}>
+                <h1 style={{
+                  fontSize: '4.5rem',
+                  fontWeight: 'bold',
+                  marginBottom: '1rem',
+                  color: '#FFFFFF',
+                  textShadow: '2px 2px 4px rgba(0,0,0,0.5)'
+                }}>
+                  Professional Cleaning Services
+                </h1>
+                <p style={{
+                  fontSize: '1.5rem',
+                  marginBottom: '2rem',
+                  color: '#FFFFFF',
+                  textShadow: '2px 2px 4px rgba(0,0,0,0.5)'
+                }}>
+                  Experience the difference with our expert cleaning solutions
+                </p>
+                <button 
+                  onClick={handleEstimateClick}
+                  className="cta-button"
+                >
+                  Request Free Estimate
+                </button>
               </div>
-            </section>
+            </div>
 
             <section id="services" className="services">
               <h2>{t('services.title')}</h2>
               <p className="services-summary">{t('services.summary')}</p>
-              <div className="service-grid">
-                  <div className="service-card">
+                  <div className="service-grid">
+                  <div id="holiday" className="service-card">
                     <h3><i className="fas fa-candy-cane"></i> {t('services.items.holiday.title')}</h3>
                     <p>{t('services.items.holiday.description')}</p>
                   </div>
-                  <div className="service-card">
+                  <div id="moveinout" className="service-card">
                     <h3><i className="fas fa-truck-moving"></i> {t('services.items.moveinout.title')}</h3>
                     <p>{t('services.items.moveinout.description')}</p>
                   </div>
-                  <div className="service-card">
+                  <div id="premier" className="service-card">
                     <h3><i className="fas fa-crown"></i> {t('services.items.premier.title')}</h3>
                     <p>{t('services.items.premier.description')}</p>
                   </div>
-                  <div className="service-card">
+                  <div id="apartment" className="service-card">
                     <h3><i className="fas fa-building"></i> {t('services.items.apartment.title')}</h3>
                     <p>{t('services.items.apartment.description')}</p>
                   </div>
-                  <div className="service-card">
+                  <div id="office" className="service-card">
                     <h3><i className="fas fa-briefcase"></i> {t('services.items.office.title')}</h3>
                     <p>{t('services.items.office.description')}</p>
                   </div>
-                  <div className="service-card">
+                  <div id="deep" className="service-card">
                     <h3><i className="fas fa-broom"></i> {t('services.items.deep.title')}</h3>
                     <p>{t('services.items.deep.description')}</p>
                   </div>
-                  <div className="service-card">
+                  <div id="house" className="service-card">
                     <h3><i className="fas fa-home"></i> {t('services.items.house.title')}</h3>
                     <p>{t('services.items.house.description')}</p>
                   </div>
-                  <div className="service-card">
+                  <div id="disinfection" className="service-card">
                     <h3><i className="fas fa-shield-virus"></i> {t('services.items.disinfection.title')}</h3>
                     <p>{t('services.items.disinfection.description')}</p>
                   </div>
-                  <div className="service-card">
+                  <div id="organization" className="service-card">
                     <h3><i className="fas fa-boxes"></i> {t('services.items.organization.title')}</h3>
                     <p>{t('services.items.organization.description')}</p>
                   </div>
-                  <div className="service-card">
+                  <div id="housekeeping" className="service-card">
                     <h3><i className="fas fa-hand-sparkles"></i> {t('services.items.housekeeping.title')}</h3>
                     <p>{t('services.items.housekeeping.description')}</p>
                   </div>
-                  <div className="service-card">
+                  <div id="other" className="service-card">
                     <h3><i className="fas fa-plus-circle"></i> {t('services.items.other.title')}</h3>
                     <p>{t('services.items.other.description')}</p>
-                    <input type="text" placeholder={t('services.items.other.placeholder')} className="other-service-input" />
                   </div>
               </div>
             </section>
@@ -213,14 +273,7 @@ function App() {
                 <p>{t('contact.info.address')}</p>
               </div>
               <div className="contact-form">
-                <h3>{t('contact.form.title')}</h3>
-                <form>
-                  <input type="text" placeholder={t('contact.form.fields.name')} required />
-                  <input type="tel" placeholder={t('contact.form.fields.phone')} required />
-                  <input type="email" placeholder={t('contact.form.fields.email')} required />
-                  <textarea placeholder={t('contact.form.fields.message')} required></textarea>
-                  <button type="submit" className="cta-button">{t('contact.form.submit')}</button>
-                </form>
+                <ContactEmailForm />
               </div>
             </section>
 
@@ -260,13 +313,13 @@ function App() {
           </div>
           
           <div className="footer-section">
-            <h3>Quick Link</h3>
+            <h3>{t('footer.quickLinks.title')}</h3>
             <ul className="footer-links">
-              <li><a href="#home">Home</a></li>
-              <li><a href="#about">About Us</a></li>
-              <li><a href="#services">Services</a></li>
-              <li><a href="#blog">Blog</a></li>
-              <li><a href="#contact">Contact</a></li>
+              <li><Link to="/">{t('header.nav.home')}</Link></li>
+              <li><a href="#about">{t('header.nav.about')}</a></li>
+              <li><a href="#services">{t('header.nav.services')}</a></li>
+              <li><Link to="/photos">{t('header.nav.photos')}</Link></li>
+              <li><a href="#contact">{t('header.nav.contact')}</a></li>
             </ul>
           </div>
           
@@ -274,8 +327,8 @@ function App() {
             <h3>Contact Us!</h3>
             <div className="footer-contact">
               <p><i className="fas fa-map-marker-alt"></i> 2300 Loreto Dr, Fort Worth, TX 76177</p>
-              <p><i className="fas fa-envelope"></i> edavidjd76@gmail.com</p>
-              <p><i className="fas fa-phone"></i> +1 817-707-2429</p>
+              <p><i className="fas fa-envelope"></i> esmeralda@rubycleaningservice.com</p>
+              <p><i className="fas fa-phone"></i> +1 469-993-5909</p>
               <p><i className="fas fa-phone"></i> +1 682-433-9500</p>
             </div>
           </div>

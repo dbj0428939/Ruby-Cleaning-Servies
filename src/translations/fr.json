@@ -72,14 +72,19 @@
         "monthly": "Mensuel"
       },
       "specialInstructions": {
-        "label": "Instructions Spéciales",
-        "placeholder": "Ajoutez des instructions spéciales ou des demandes particulières..."
+        "label": "Dites-nous à propos de votre demande",
+        "placeholder": "Ajoutez des instructions spéciales ou des demandes particulières...",
+        "note": "Veuillez décrire votre demande ci-dessous ; lorsque le brouillon de l'e-mail s'ouvrira, vous pourrez y joindre des photos pour illustrer les zones à traiter."
       },
       "photos": {
         "label": "Photos de l'Espace",
         "note": "Ajoutez des photos de votre espace pour nous aider à mieux comprendre vos besoins"
       },
       "submit": "Soumettre la Demande"
+    }
+    ,
+    "email": {
+      "subjectPrefix": "Demande de devis de"
     }
   },
   "contact": {
@@ -254,6 +259,13 @@
         "name": "Nom",
         "phone": "Téléphone",
         "email": "Email",
+        "preferredContactMethod": "Méthode de Contact Préférée",
+        "preferredContactOptions": {
+          "placeholder": "Choisissez une méthode",
+          "phone": "Appel téléphonique",
+          "text": "SMS",
+          "email": "E-mail"
+        },
         "message": "Message"
       },
       "submit": "Envoyer"

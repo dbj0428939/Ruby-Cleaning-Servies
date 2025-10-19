@@ -71,8 +71,9 @@
         "monthly": "Mensual"
       },
       "specialInstructions": {
-        "label": "Instrucciones Especiales o Requisitos",
-        "placeholder": "Por favor, proporcione cualquier información adicional que nos ayude a servirle mejor"
+        "label": "Cuéntenos sobre su solicitud",
+        "placeholder": "Por favor, proporcione cualquier información adicional que nos ayude a servirle mejor",
+        "note": "Describa su solicitud a continuación; cuando se abra el borrador del correo podrá adjuntar fotos directamente al mensaje para ilustrar las áreas que desea que atendamos."
       },
       "photos": {
         "label": "Subir Fotos (Opcional)",
@@ -172,9 +173,20 @@
         "name": "Nombre",
         "phone": "Teléfono",
         "email": "Correo",
+        "preferredContactMethod": "Método Preferido de Contacto",
+        "preferredContactOptions": {
+          "placeholder": "Seleccione un método",
+          "phone": "Llamada telefónica",
+          "text": "Mensaje de texto",
+          "email": "Correo electrónico"
+        },
         "message": "Mensaje"
       },
       "submit": "Enviar"
+    }
+    ,
+    "email": {
+      "subjectPrefix": "Solicitud de presupuesto de"
     }
   },
   "footer": {

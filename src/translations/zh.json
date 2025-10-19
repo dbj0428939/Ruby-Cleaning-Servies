@@ -90,9 +90,20 @@
         "name": "姓名",
         "phone": "电话",
         "email": "邮箱",
+        "preferredContactMethod": "首选联系方式",
+        "preferredContactOptions": {
+          "placeholder": "请选择联系方式",
+          "phone": "电话",
+          "text": "短信",
+          "email": "电子邮件"
+        },
         "message": "留言"
       },
       "submit": "发送"
+    }
+    ,
+    "email": {
+      "subjectPrefix": "来自的估价请求"
     }
   },
   "estimate": {
@@ -167,8 +178,9 @@
         "monthly": "每月"
       },
       "specialInstructions": {
-        "label": "特殊说明",
-        "placeholder": "请提供任何特殊要求或额外说明"
+        "label": "告诉我们您的请求",
+        "placeholder": "请提供任何特殊要求或额外说明",
+        "note": "请在下方描述您的请求；当电子邮件草稿打开时，您可以将照片直接附加到邮件中以说明希望我们处理的区域。"
       },
       "photos": {
         "label": "上传照片",

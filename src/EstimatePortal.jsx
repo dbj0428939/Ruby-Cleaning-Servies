@@ -13,40 +13,20 @@ function EstimatePortal() {
     city: '',
     state: '',
     zipCode: '',
+  preferredContactMethod: '',
     propertyType: '',
-    squareFootage: '',
-    bedrooms: '',
-    bathrooms: '',
+  // removed squareFootage/bedrooms/bathrooms per request
     preferredDate: '',
     preferredTime: '',
     frequency: '',
     specialInstructions: '',
-    photos: []
+    // photos removed per request
   });
 
   const { t } = useTranslation();
 
-  const services = [
-    { id: 'holiday', icon: 'candy-cane', name: t('services.items.holiday.title'), description: t('services.items.holiday.description') },
-    { id: 'moveinout', icon: 'truck-moving', name: t('services.items.moveinout.title'), description: t('services.items.moveinout.description') },
-    { id: 'premier', icon: 'crown', name: t('services.items.premier.title'), description: t('services.items.premier.description') },
-    { id: 'apartment', icon: 'building', name: t('services.items.apartment.title'), description: t('services.items.apartment.description') },
-    { id: 'office', icon: 'briefcase', name: t('services.items.office.title'), description: t('services.items.office.description') },
-    { id: 'deep', icon: 'broom', name: t('services.items.deep.title'), description: t('services.items.deep.description') },
-    { id: 'house', icon: 'home', name: t('services.items.house.title'), description: t('services.items.house.description') },
-    { id: 'disinfection', icon: 'shield-virus', name: t('services.items.disinfection.title'), description: t('services.items.disinfection.description') },
-    { id: 'organization', icon: 'boxes', name: t('services.items.organization.title'), description: t('services.items.organization.description') },
-    { id: 'housekeeping', icon: 'hand-sparkles', name: t('services.items.housekeeping.title'), description: t('services.items.housekeeping.description') }
-  ];
 
-  const handleServiceChange = (serviceId) => {
-    setFormData(prev => ({
-      ...prev,
-      services: prev.services.includes(serviceId)
-        ? prev.services.filter(id => id !== serviceId)
-        : [...prev.services, serviceId]
-    }));
-  };
+
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -56,19 +36,67 @@ function EstimatePortal() {
     }));
   };
 
-  const handlePhotoUpload = (e) => {
-    const files = Array.from(e.target.files);
-    setFormData(prev => ({
-      ...prev,
-      photos: [...prev.photos, ...files]
-    }));
-  };
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // Here you would typically send the formData to your backend
     console.log('Form submitted:', formData);
     alert('Thank you for your request! We will contact you shortly.');
+  };
+
+  // Email compose helpers
+  const encodeBody = (data) => {
+    const format12Hour = (time24) => {
+      if (!time24) return '';
+      // expect HH:MM
+      const parts = time24.split(':');
+      if (parts.length < 2) return time24;
+      const h = parseInt(parts[0], 10);
+      const m = parts[1];
+      const suffix = h >= 12 ? 'PM' : 'AM';
+      let hour = h % 12;
+      if (hour === 0) hour = 12;
+      return `${hour}:${String(m).padStart(2, '0')} ${suffix}`;
+    };
+
+    const formattedTime = format12Hour(data.preferredTime);
+
+    const lines = [
+      `${t('estimate.form.firstName')}: ${data.firstName}`,
+      `${t('estimate.form.lastName')}: ${data.lastName}`,
+      `${t('estimate.form.phone')}: ${data.phone}`,
+      `${t('estimate.form.address')}: ${data.address}`,
+      `${t('estimate.form.city')}: ${data.city}`,
+      `${t('estimate.form.state')}: ${data.state}`,
+      `${t('estimate.form.zipCode')}: ${data.zipCode}`,
+      `${t('contact.form.fields.preferredContactMethod')}: ${t(`contact.form.fields.preferredContactOptions.${data.preferredContactMethod}`) || data.preferredContactMethod}`,
+      `${t('estimate.form.propertyType.label')}: ${data.propertyType}`,
+      `${t('estimate.form.preferredDate')}: ${data.preferredDate}`,
+  `${t('estimate.form.preferredTime.label')}: ${formattedTime}`,
+      `${t('estimate.form.frequency.label')}: ${data.frequency}`,
+      `${t('estimate.form.specialInstructions.label')}:`,
+      '',
+      `${data.specialInstructions}`,
+    ];
+    return encodeURIComponent(lines.join('\n'));
+  };
+
+  const recipient = 'esmeralda@rubycleaningservice.com';
+  const mailTo = () => {
+    const prefix = t('email.subjectPrefix');
+    const subject = encodeURIComponent(`${prefix} ${formData.firstName || ''} ${formData.lastName || ''}`);
+    return `mailto:${recipient}?subject=${subject}&body=${encodeBody(formData)}`;
+  };
+  const gmailTo = () => {
+    const prefix = t('email.subjectPrefix');
+    const subject = encodeURIComponent(`${prefix} ${formData.firstName || ''} ${formData.lastName || ''}`);
+    return `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(recipient)}&su=${subject}&body=${encodeBody(formData)}`;
+  };
+  const outlookTo = () => {
+    const prefix = t('email.subjectPrefix');
+    const subject = encodeURIComponent(`${prefix} ${formData.firstName || ''} ${formData.lastName || ''}`);
+    return `https://outlook.office.com/mail/deeplink/compose?to=${encodeURIComponent(recipient)}&subject=${subject}&body=${encodeBody(formData)}`;
   };
 
   return (
@@ -78,39 +106,7 @@ function EstimatePortal() {
         <p className="portal-description">{t('estimate.description')}</p>
 
         <form onSubmit={handleSubmit} className="estimate-form">
-          <section className="form-section">
-            <h2>{t('estimate.sections.services')}</h2>
-            <div className="services-grid">
-              {services.map(service => (
-                <div key={service.id} className="service-card">
-                  <div className="service-checkbox">
-                    <input
-                      type="checkbox"
-                      id={service.id}
-                      checked={formData.services.includes(service.id)}
-                      onChange={() => handleServiceChange(service.id)}
-                    />
-                    <label htmlFor={service.id}>
-                      <h3>
-                        {service.id === 'holiday' && <i className="fas fa-candy-cane"></i>}
-                        {service.id === 'moveinout' && <i className="fas fa-truck-moving"></i>}
-                        {service.id === 'premier' && <i className="fas fa-crown"></i>}
-                        {service.id === 'apartment' && <i className="fas fa-building"></i>}
-                        {service.id === 'office' && <i className="fas fa-briefcase"></i>}
-                        {service.id === 'deep' && <i className="fas fa-broom"></i>}
-                        {service.id === 'house' && <i className="fas fa-home"></i>}
-                        {service.id === 'disinfection' && <i className="fas fa-shield-virus"></i>}
-                        {service.id === 'organization' && <i className="fas fa-boxes"></i>}
-                        {service.id === 'housekeeping' && <i className="fas fa-hand-sparkles"></i>}
-                        {service.name}
-                      </h3>
-                      <p className="service-description">{service.description}</p>
-                    </label>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
+          {/* Select Services removed per request */}
 
           <section className="form-section">
             <h2>{t('estimate.sections.contact')}</h2>
@@ -162,6 +158,21 @@ function EstimatePortal() {
                   required
                 />
               </div>
+              <div className="form-group">
+                <label htmlFor="preferredContactMethod">{t('contact.form.fields.preferredContactMethod')}</label>
+                <select
+                  id="preferredContactMethod"
+                  name="preferredContactMethod"
+                  value={formData.preferredContactMethod}
+                  onChange={handleInputChange}
+                  required
+                >
+                  <option value="">{t('contact.form.fields.preferredContactOptions.placeholder')}</option>
+                  <option value="phone">{t('contact.form.fields.preferredContactOptions.phone')}</option>
+                  <option value="text">{t('contact.form.fields.preferredContactOptions.text')}</option>
+                  <option value="email">{t('contact.form.fields.preferredContactOptions.email')}</option>
+                </select>
+              </div>
             </div>
           </section>
 
@@ -178,6 +189,8 @@ function EstimatePortal() {
                 required
               />
             </div>
+
+            
 
             <div className="form-row">
               <div className="form-group">
@@ -232,56 +245,9 @@ function EstimatePortal() {
                   <option value="other">{t('estimate.form.propertyType.other')}</option>
                 </select>
               </div>
-              <div className="form-group">
-                <label htmlFor="squareFootage">{t('estimate.form.squareFootage.label')}</label>
-                <input
-                  type="number"
-                  id="squareFootage"
-                  name="squareFootage"
-                  value={formData.squareFootage}
-                  onChange={handleInputChange}
-                  placeholder={t('estimate.form.squareFootage.placeholder')}
-                />
-              </div>
             </div>
 
-            <div className="form-row">
-              <div className="form-group">
-                <label htmlFor="bedrooms">{t('estimate.form.bedrooms.label')}</label>
-                <select
-                  id="bedrooms"
-                  name="bedrooms"
-                  value={formData.bedrooms}
-                  onChange={handleInputChange}
-                >
-                  <option value="">{t('estimate.form.bedrooms.placeholder')}</option>
-                  <option value="studio">{t('estimate.form.bedrooms.studio')}</option>
-                  <option value="1">{t('estimate.form.bedrooms.options.1')}</option>
-                  <option value="2">{t('estimate.form.bedrooms.options.2')}</option>
-                  <option value="3">{t('estimate.form.bedrooms.options.3')}</option>
-                  <option value="4">{t('estimate.form.bedrooms.options.4')}</option>
-                  <option value="5+">{t('estimate.form.bedrooms.options.5+')}</option>
-                </select>
-              </div>
-              <div className="form-group">
-                <label htmlFor="bathrooms">{t('estimate.form.bathrooms.label')}</label>
-                <select
-                  id="bathrooms"
-                  name="bathrooms"
-                  value={formData.bathrooms}
-                  onChange={handleInputChange}
-                >
-                  <option value="">{t('estimate.form.bathrooms.placeholder')}</option>
-                  <option value="1">1</option>
-                  <option value="1.5">1.5</option>
-                  <option value="2">2</option>
-                  <option value="2.5">2.5</option>
-                  <option value="3">3</option>
-                  <option value="3.5">3.5</option>
-                  <option value="4+">4+</option>
-                </select>
-              </div>
-            </div>
+            {/* Square footage / bedrooms / bathrooms removed per request */}
           </section>
 
           <section className="form-section">
@@ -299,17 +265,13 @@ function EstimatePortal() {
               </div>
               <div className="form-group">
                 <label htmlFor="preferredTime">{t('estimate.form.preferredTime.label')}</label>
-                <select
+                <input
+                  type="time"
                   id="preferredTime"
                   name="preferredTime"
                   value={formData.preferredTime}
                   onChange={handleInputChange}
-                >
-                  <option value="">{t('estimate.form.preferredTime.placeholder')}</option>
-                  <option value="morning">{t('estimate.form.preferredTime.morning')}</option>
-                  <option value="afternoon">{t('estimate.form.preferredTime.afternoon')}</option>
-                  <option value="evening">{t('estimate.form.preferredTime.evening')}</option>
-                </select>
+                />
               </div>
             </div>
 
@@ -339,26 +301,24 @@ function EstimatePortal() {
                 placeholder={t('estimate.form.specialInstructions.placeholder')}
                 rows="4"
               ></textarea>
+              <p className="field-note" style={{fontSize: '0.9rem', color: '#666', marginTop: '8px'}}>{t('estimate.form.specialInstructions.note')}</p>
             </div>
 
-            <div className="form-group">
-              <label htmlFor="photos">{t('estimate.form.photos.label')}</label>
-              <div className="photo-upload">
-                <input
-                  type="file"
-                  id="photos"
-                  name="photos"
-                  onChange={handlePhotoUpload}
-                  multiple
-                  accept="image/*"
-                />
-                <p className="upload-note">{t('estimate.form.photos.note')}</p>
-              </div>
-            </div>
+            {/* Upload photos removed per request */}
           </section>
 
           <div className="form-actions">
-            <button type="submit" className="submit-button">{t('estimate.form.submit')}</button>
+            <div style={{display: 'flex', gap: '12px'}}>
+              <a className="cta-button" href={mailTo()}>
+                Send with Mail
+              </a>
+              <a className="cta-button" href={gmailTo()} target="_blank" rel="noopener noreferrer">
+                Send with Gmail
+              </a>
+              <a className="cta-button" href={outlookTo()} target="_blank" rel="noopener noreferrer">
+                Send with Outlook
+              </a>
+            </div>
           </div>
         </form>
       </div>

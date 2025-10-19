@@ -71,8 +71,9 @@
         "monthly": "Monthly"
       },
       "specialInstructions": {
-        "label": "Special Instructions",
-        "placeholder": "Any specific requirements or areas that need special attention?"
+        "label": "Tell us about your request",
+        "placeholder": "Any specific requirements or areas that need special attention?",
+        "note": "Please describe your request below — when the email draft opens you may attach photos directly to the message to illustrate the areas you'd like us to address."
       },
       "photos": {
         "label": "Upload Photos (Optional)",
@@ -80,6 +81,10 @@
       },
       "submit": "Submit Request"
     }
+  ,
+  "email": {
+    "subjectPrefix": "Estimate Request from"
+  }
   },
   "header": {
     "contact": {
@@ -90,7 +95,8 @@
       "home": "Home",
       "services": "Our Services",
       "about": "About",
-      "contact": "Contact"
+      "contact": "Contact",
+      "photos": "Photos"
     },
     "languages": {
       "en": "English",
@@ -151,7 +157,7 @@
       "other": {
         "title": "Other Service",
         "description": "Tell us about your specific cleaning needs",
-        "placeholder": "Describe your cleaning needs..."
+        "placeholder": ""
       }
     }
   },
@@ -162,17 +168,24 @@
   "contact": {
     "title": "Contact Us",
     "info": {
-      "email": "Email: info@rubycleaning.com",
-      "phone": "Phone: (555) 123-4567",
-      "address": "Address: 123 Clean Street, Sparkle City, SC 12345"
+      "email": "Email: esmeralda@rubycleaningservice.com",
+      "phone": "Phone: 469-993-5909",
+      "address": "Address: 2300 Loreto Dr, Fort Worth, TX 76177"
     },
     "form": {
       "title": "Ready to Transform Your Space? Let's Connect!",
       "fields": {
-        "name": "Name",
-        "phone": "Phone",
-        "email": "Email",
-        "message": "Message"
+  "name": "Name",
+  "phone": "Phone",
+  "address": "Address",
+  "preferredContactMethod": "Preferred Contact",
+  "preferredContactOptions": {
+    "placeholder": "Select a method",
+    "phone": "Phone Call",
+    "text": "Text",
+    "email": "Email"
+  },
+  "message": "Message"
       },
       "submit": "Send"
     }
