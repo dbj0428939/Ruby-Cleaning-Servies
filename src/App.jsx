@@ -112,7 +112,7 @@ function App() {
         </div>
         <nav>
           <div className="logo">
-            <img src={logo} alt="Ruby Cleaning Services" />
+            <img src={logo} alt="Ruby's Cleaning Service" />
           </div>
           <ul className="nav-links">
             <li><Link to="/">{t('header.nav.home')}</Link></li>
@@ -301,7 +301,7 @@ function App() {
         <div className="footer-content">
           <div className="footer-section">
             <div className="footer-logo">
-              <img src={logo} alt="Ruby Cleaning Services" />
+              <img src={logo} alt="Ruby's Cleaning Service" />
             </div>
             <p className="footer-description">Professional and reliable cleaning services for your home and business.</p>
             <div className="footer-social">
@@ -334,7 +334,7 @@ function App() {
           </div>
         </div>
         <div className="footer-bottom">
-          <p>&copy; 2024 Ruby Cleaning Services. All rights reserved.</p>
+          <p>&copy; 2024 Ruby's Cleaning Service. All rights reserved.</p>
         </div>
       </footer>
     </div>

@@ -111,7 +111,7 @@
   },
   "services": {
     "title": "Nos Services",
-    "summary": "Découvrez l'excellence en matière de propreté avec Ruby Cleaning Services. Notre équipe dévouée de professionnels apporte une attention méticuleuse aux détails et des résultats exceptionnels pour chaque espace que nous traitons. Des maisons aux bureaux, nous fournissons des solutions de nettoyage personnalisées qui dépassent les attentes, garantissant un environnement impeccable et sain où vous pourrez vous épanouir.",
+    "summary": "Découvrez l'excellence en matière de propreté avec Ruby's Cleaning Service. Notre équipe dévouée de professionnels apporte une attention méticuleuse aux détails et des résultats exceptionnels pour chaque espace que nous traitons. Des maisons aux bureaux, nous fournissons des solutions de nettoyage personnalisées qui dépassent les attentes, garantissant un environnement impeccable et sain où vous pourrez vous épanouir.",
     "items": {
       "holiday": {
         "title": "Nettoyage des Fêtes",
@@ -162,7 +162,7 @@
   },
   "about": {
     "title": "Plus de 8 Ans d'Expérience",
-    "description": "Ruby Cleaning Services fournit des solutions de nettoyage de haute qualité avec une attention particulière aux détails et la satisfaction client comme priorité."
+    "description": "Ruby's Cleaning Service fournit des solutions de nettoyage de haute qualité avec une attention particulière aux détails et la satisfaction client comme priorité."
   },
   "estimate": {
     "title": "Demander un Devis Gratuit",
@@ -288,6 +288,6 @@
       "phone1": "+1 817-707-2429",
       "phone2": "+1 682-433-9500"
     },
-    "copyright": "© 2024 Ruby Cleaning Services. Tous droits réservés."
+    "copyright": "© 2024 Ruby's Cleaning Service. Tous droits réservés."
   }
 }

@@ -112,7 +112,7 @@
   },
   "services": {
     "title": "Our Services",
-    "summary": "Experience excellence in cleanliness with Ruby Cleaning Services. Our dedicated team of professionals delivers meticulous attention to detail and outstanding results for every space we touch. From homes to offices, we provide customized cleaning solutions that exceed expectations, ensuring a pristine and healthy environment for you to thrive in.",
+    "summary": "Experience excellence in cleanliness with Ruby's Cleaning Service. Our dedicated team of professionals delivers meticulous attention to detail and outstanding results for every space we touch. From homes to offices, we provide customized cleaning solutions that exceed expectations, ensuring a pristine and healthy environment for you to thrive in.",
     "items": {
       "holiday": {
         "title": "Holiday Cleaning",
@@ -163,7 +163,7 @@
   },
   "about": {
     "title": "8+ Years of Experience",
-    "description": "Ruby Cleaning Services provides top-quality cleaning solutions with attention to detail and customer satisfaction as our priority."
+    "description": "Ruby's Cleaning Service provides top-quality cleaning solutions with attention to detail and customer satisfaction as our priority."
   },
   "contact": {
     "title": "Contact Us",
@@ -207,6 +207,6 @@
       "phone1": "+1 817-707-2429",
       "phone2": "+1 682-433-9500"
     },
-    "copyright": "© 2024 Ruby Cleaning Services. All rights reserved."
+    "copyright": "© 2024 Ruby's Cleaning Service. All rights reserved."
   }
 }
