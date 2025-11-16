@@ -82,6 +82,28 @@ nav {
   line-height: 1.2;
 }
 
+.logo-text {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.logo-company-name {
+  color: #333;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.logo-icon {
+  color: #e91e63;
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.logo-ruby {
+  color: #e91e63;
+}
+
 .logo span {
   display: block;
 }

@@ -112,7 +112,12 @@ function App() {
         </div>
         <nav>
           <div className="logo">
-            <img src={logo} alt="Ruby's Cleaning Service" />
+            <div className="logo-text">
+              <i className="fas fa-gem logo-icon"></i>
+              <span className="logo-company-name">
+                <span className="logo-ruby">Ruby's</span> Cleaning Service
+              </span>
+            </div>
           </div>
           <ul className="nav-links">
             <li><Link to="/">{t('header.nav.home')}</Link></li>
